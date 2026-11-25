@@ -39,6 +39,8 @@ Standard NeoForge [ModDevGradle](https://github.com/neoforged/ModDevGradle) proj
 
 Versions (NeoForge, EMI and the mod) are set in `gradle.properties`.
 
+GitHub Actions builds every push. Pushing a tag `v<mod_version>` (for example `v1.6.1`) publishes a release with the jar attached.
+
 ## License
 
 [MIT](LICENSE). The search syntax is inspired by the Extended+ mode of GT New Horizons' NotEnoughItems. Built on top of EMI by Emi.
