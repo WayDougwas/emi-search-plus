@@ -1,4 +1,4 @@
-<p align="center"><img src="resources/emisearchplus_logo.png" width="96" alt="EMI Search Plus"></p>
+<p align="center"><img src="src/main/resources/emisearchplus_logo.png" width="96" alt="EMI Search Plus"></p>
 
 <h1 align="center">EMI Search Plus (EMIS+)</h1>
 
