@@ -1,0 +1,23 @@
+# Gradle
+.gradle/
+build/
+run/
+runs/
+out/
+*.class
+
+# CurseForge publishing material (kept locally)
+curseforge/
+
+# IDE / OS
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.classpath
+.project
+.settings/
+bin/
+.DS_Store
+Thumbs.db

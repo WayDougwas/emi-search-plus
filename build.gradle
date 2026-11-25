@@ -1,0 +1,77 @@
+plugins {
+    id 'java-library'
+    id 'idea'
+    id 'net.neoforged.moddev' version '2.0.148'
+}
+
+version = mod_version
+group = mod_group_id
+
+base {
+    archivesName = 'emi-search-plus'
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+repositories {
+    maven {
+        name = 'Sleeping Town (EMI)'
+        url = 'https://repo.sleeping.town/'
+        content { includeGroup 'dev.emi' }
+    }
+}
+
+neoForge {
+    version = neo_version
+
+    runs {
+        client {
+            client()
+        }
+    }
+
+    mods {
+        "${mod_id}" {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+dependencies {
+    // EMI's full jar, not only ':api': the add-on hooks into EMI internals (search, recipe and config screens).
+    compileOnly "dev.emi:emi-neoforge:${emi_version}"
+    runtimeOnly "dev.emi:emi-neoforge:${emi_version}"
+}
+
+// Fill the version into neoforge.mods.toml (plain replace: the description contains '$' characters).
+processResources {
+    inputs.property 'version', mod_version
+    filesMatching('META-INF/neoforge.mods.toml') {
+        filter { line -> line.replace('${mod_version}', mod_version) }
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+jar {
+    archiveFileName = "emi-search-plus-${mod_version}+${minecraft_version}-neoforge.jar"
+    from('LICENSE') {
+        rename { "LICENSE_${mod_id}" }
+    }
+    manifest {
+        attributes(
+                'Implementation-Title': mod_name,
+                'Implementation-Version': mod_version,
+                'Implementation-Vendor': mod_authors
+        )
+    }
+}
+
+idea {
+    module {
+        downloadSources = true
+        downloadJavadoc = true
+    }
+}

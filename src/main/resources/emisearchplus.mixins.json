@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.xorume.emisearchplus.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "CompiledQueryMixin",
+    "EmiSearchMixin",
+    "SearchWorkerMixin",
+    "EmiSearchWidgetMixin",
+    "EmiSearchWidgetAccessor",
+    "RecipeScreenMixin",
+    "ConfigScreenMixin",
+    "EmiScreenManagerMixin"
+  ],
+  "injectors": { "defaultRequire": 0 }
+}
