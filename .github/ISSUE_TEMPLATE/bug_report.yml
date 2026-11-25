@@ -1,0 +1,89 @@
+name: Bug report
+description: Something doesn't work as expected
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report! Please fill in what you can. Issues in Portuguese are welcome too.
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what happened instead?
+      placeholder: |
+        I typed `=tar` in the main search bar and expected "Tar", but nothing showed up.
+    validations:
+      required: true
+
+  - type: input
+    id: query
+    attributes:
+      label: Search query
+      description: The exact text you typed, if the bug is about a search.
+      placeholder: "{iron|gold} -@minecraft"
+
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where
+      options:
+        - Main EMI search bar
+        - Recipe screen search bar
+        - Help screen
+        - '"Search by" menu (hovered item)'
+        - Config screen
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: syntax
+    attributes:
+      label: Search syntax mode
+      description: EMI config → EMI Search Plus (EMIS+) → Search syntax / Explicit AND
+      options:
+        - Extended+ (default)
+        - Extended+ with Explicit AND
+        - Original EMI
+        - Not sure
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: EMI Search Plus version
+      placeholder: "1.6.1"
+    validations:
+      required: true
+
+  - type: input
+    id: emi
+    attributes:
+      label: EMI version
+      placeholder: "1.1.24+1.21.1"
+    validations:
+      required: true
+
+  - type: input
+    id: neoforge
+    attributes:
+      label: NeoForge version
+      placeholder: "21.1.265"
+
+  - type: textarea
+    id: mods
+    attributes:
+      label: Other relevant mods
+      description: Mods that change EMI or searching (e.g. Reliable EMI / REMI), or a link to the modpack.
+
+  - type: textarea
+    id: log
+    attributes:
+      label: Log
+      description: |
+        Upload `logs/latest.log` (drag the file here) or paste the relevant part.
+        Lines with "EMI Search Plus", "emisearchplus" or "Error when attempting to search" are the most useful.
+      render: text
